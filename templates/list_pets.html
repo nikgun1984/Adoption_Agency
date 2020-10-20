@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+
+{% block title%} All Pets {% endblock %}
+
+{% block content%}
+<table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">№</th>
+        <th scope="col">Name</th>
+        <th scope="col">Species</th>
+        <th scope="col">Photo</th>
+        <th scope="col">Age</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Availability</th>
+      </tr>
+    </thead>
+    <tbody class="border border-dark">
+      {% for pet in pets %}
+      <tr>
+        <th scope="row">{{pet.id}}</th>
+        <td>{{pet.name}}</td>
+        <td>{{pet.species}}</td>
+        {% if pet.age%}
+          <td><img src="{{pet.photo_url}}" class="img-fluid img-thumbnail" alt="..." style="width: 100px"></td>
+        {% else%}
+          <td class="text-danger">NO IMAGE</td>
+        {% endif %}
+        {% if pet.age%}
+          <td>{{pet.age}}</td>
+        {% else%}
+          <td class="text-danger">NO AGE</td>
+        {% endif %}
+        {% if pet.notes %}
+        <td>{{pet.notes}}</td>
+        {% else%}
+          <td class="text-danger">NO NOTES</td>
+        {% endif %}
+        <td>{{pet.available}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/pets/add" class="btn btn-success border border-dark">Add Pet</a>
+{% endblock %}
