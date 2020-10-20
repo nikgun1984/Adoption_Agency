@@ -2,13 +2,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-def connect_db(app):
-    db.app = app
-    db.init_app(app)
-
 class Pet(db.Model):
 
-    __tablename__ = "pets"
+    __tablename__ = "adopt_pets"
 
     id = db.Column(db.Integer,
                   primary_key = True,
@@ -33,3 +29,8 @@ class Pet(db.Model):
     def __repr__(self):
         return f"<Pet: (name:'{self.name}',species:'{self.species}', available:'{self.available}')>"
 
+
+def connect_db(app):
+    """Connect the database to our Flask app."""
+    db.app = app
+    db.init_app(app)
