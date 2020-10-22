@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+"""Pet's Model"""
 class Pet(db.Model):
 
     __tablename__ = "adopt_pets"
@@ -28,7 +29,6 @@ class Pet(db.Model):
 
     def __repr__(self):
         return f"<Pet: (name:'{self.name}',species:'{self.species}', available:'{self.available}')>"
-
 
 def connect_db(app):
     """Connect the database to our Flask app."""

@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block title%} {{pet.name}} the {{pet.species}} {% endblock %}
+
+{%block content%}
+    <div class="jumbotron m-4">
+        <div class="row">
+            <div class="col-6 text-center">
+                <img src="{{pet.photo_url}}" alt="" style="width: 300px">
+                <p class="mt-3">
+                    <span class="text-success">{{pet.name}} *</span>
+                    <span>{{pet.age}} years of age *</span>
+                    <span>{{pet.species.title()}}</span>
+                </p>
+            </div>
+            <div class="col-6 text-left">
+                {% include "form.html"%}
+            </div>
+        </div>
+    </div>
+{% endblock%}

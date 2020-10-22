@@ -7,19 +7,7 @@
         <div class="jumbotron text-center">
             <div class="col"></div>
             <h1 class="display-4">Add Pet</h1>
-            <form action="" method="POST">
-                {{form.hidden_tag()}}
-                {% for field in form if field.widget.input_type != 'hidden'%}
-                <div class="form-group">
-                    {{field.label}}
-                    {{field}}
-                    {% for error in field.errors %}
-                        <p><em class="text-danger"><small>{{ error }}</small></em></p>
-                    {% endfor %}
-                </div>
-                {% endfor %}
-                <button class="btn btn-success">Submit</button>
-            </form>
+            {% include "form.html"%}
         </div>
     </div>
 </div>

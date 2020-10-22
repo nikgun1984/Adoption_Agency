@@ -1,0 +1,15 @@
+<!-- action will be default, the same route as for GET -->
+<form action="" method="POST" enctype="multipart/form-data">
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden'%}
+    <div class="form-group">
+        {{field.label}}
+        {{field}}
+        {% for error in field.errors %}
+            <p><em class="text-danger"><small>{{ error }}</small></em></p>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <button class="btn btn-success">Submit</button>
+    <a href="/home" class="btn btn-warning">Back</a>
+</form>

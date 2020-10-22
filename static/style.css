@@ -1,3 +1,19 @@
 textarea{
     vertical-align: middle;
 }
+
+.error{
+    color: whitesmoke;
+    background-color: rgba(236, 85, 85, 0.6);
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.success{
+    color: whitesmoke;
+    background-color: rgba(74, 248, 126, 0.6);
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 5px;
+}

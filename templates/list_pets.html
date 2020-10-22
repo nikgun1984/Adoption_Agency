@@ -19,7 +19,7 @@
       {% for pet in pets %}
       <tr>
         <th scope="row">{{pet.id}}</th>
-        <td>{{pet.name}}</td>
+        <td><a href="/pets/{{pet.id}}">{{pet.name}}</a></td>
         <td>{{pet.species}}</td>
         {% if pet.age%}
           <td><img src="{{pet.photo_url}}" class="img-fluid img-thumbnail" alt="..." style="width: 100px"></td>
@@ -36,7 +36,11 @@
         {% else%}
           <td class="text-danger">NO NOTES</td>
         {% endif %}
-        <td>{{pet.available}}</td>
+        {% if pet.available%}
+          <td>Yes</td>
+        {% else%}
+          <td>No</td>
+        {% endif%}
       </tr>
       {% endfor %}
     </tbody>
